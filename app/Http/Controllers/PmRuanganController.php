@@ -1,126 +1,117 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\ruangan;
-use App\Models\pm_ruangan;
+
+use App\Models\Ruangan;
+use App\Models\pm_Ruangan;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class PmRuanganController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this -> middleware('auth');
     }
     public function index()
     {
-        $pm_ruangan=pm_ruangan::all();
-        return view('pm_ruangans.index',compact('pm_ruangan'));
+        $pm_ruangan =  pm_ruangan::all();
+        confirmDelete('Delete','Are you sure?');
+        return view('pm_ruangan.index', compact('pm_ruangan'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        $ruangan=ruangan::all();
-    return view('pm_ruangans.create',compact('ruangan'));
+        $ruangan =  Ruangan::all();
+        return view('pm_ruangan.create', compact('ruangan'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        $pm_ruangan=new pm_ruangan;
-        $pm_ruangan->penanggungjawab=$request->penanggungjawab;
-        $pm_ruangan->instansi=$request->instansi;
-        $pm_ruangan->jenis_kegiatan=$request->jenis_kegiatan;
-        $pm_ruangan->id_ruangan=$request->id_ruangan;
-        $pm_ruangan->tanggal_peminjaman=$request->tanggal_peminjaman;
-        $pm_ruangan->documentasi=$request->documentasi;
-        $pm_ruangan->keterangan=$request->keterangan;
-         if ($request->hasFile('documentasi')) {
-            $img = $request->file('documentasi');
-            $name = rand(1000, 999) . $img->getClientOriginalName();
+        $validated = $request->validate([
+            'penanggungjawab' => 'required',
+            'instansi' => 'required',
+            'jenis_kegiatan' => 'required',
+            'tanggal_peminjaman' => 'required',
+            'keterangan' => 'required',
+
+        ]);
+
+        $pm_ruangan = new pm_ruangan();
+        $pm_ruangan->penanggungjawab = $request->penanggungjawab;
+        $pm_ruangan->instansi = $request->instansi;
+        $pm_ruangan->jenis_kegiatan = $request->jenis_kegiatan;
+        $pm_ruangan->id_ruangan = $request->id_ruangan;
+        $pm_ruangan->tanggal_peminjaman = $request->tanggal_peminjaman;
+        $pm_ruangan->keterangan = $request->keterangan;
+
+        if ($request->hasFile('cover')) {
+            $img = $request->file('cover');
+            $name = rand(1000, 9999) . $img->getClientOriginalName();
             $img->move('images/pm_ruangan', $name);
-            $pm_ruangan->documentasi = $name;
-         }
+            $pm_ruangan->cover = $name;
+        }
+
+        Alert::success('Success','data berhasil disimpan')->autoClose(1000);
         $pm_ruangan->save();
-        return redirect()->route('pm_ruangan.index',);
+
+        return redirect()->route('pm_ruangan.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show(pm_ruangan $barang)
     {
-        $pm_ruangan = pm_ruangan::FindOrFail($id);
-        return view('pm_ruangans.show',compact('pm_ruangan'));
-
+        //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        $ruangan=ruangan::all();
-        $pm_ruangan = pm_ruangan::FindOrFail($id);
-        return view('pm_ruangans.edit', compact('pm_ruangan','ruangan'));
-
+        $ruangan =  Ruangan::all();
+        $pm_ruangan = pm_ruangan::findOrFail($id);
+        return view('pm_ruangan.edit', compact('pm_ruangan','ruangan'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        $pm_ruangan = pm_ruangan::FindOrFail($id);
-        $pm_ruangan->penanggungjawab=$request->penanggungjawab;
-        $pm_ruangan->instansi=$request->instansi;
-        $pm_ruangan->jenis_kegiatan=$request->jenis_kegiatan;
-        $pm_ruangan->id_ruangan=$request->id_ruangan;
-        $pm_ruangan->tanggal_peminjaman=$request->tanggal_peminjaman;
-        $pm_ruangan->documentasi=$request->documentasi;
-        $pm_ruangan->keterangan=$request->keterangan;
+        $this->validate($request, [
+            'penanggungjawab' => 'required',
+            'instansi' => 'required',
+            'jenis_kegiatan' => 'required',
+            'tanggal_peminjaman' => 'required',
+            'keterangan' => 'required',
+
+        ]);
+
+        $pm_ruangan = pm_ruangan::findOrFail($id);
+        $pm_ruangan->penanggungjawab = $request->penanggungjawab;
+        $pm_ruangan->instansi = $request->instansi;
+        $pm_ruangan->jenis_kegiatan = $request->jenis_kegiatan;
+        $pm_ruangan->id_ruangan = $request->id_ruangan;
+        $pm_ruangan->tanggal_peminjaman = $request->tanggal_peminjaman;
+        $pm_ruangan->keterangan = $request->keterangan;
+
+        if ($request->hasFile('cover')) {
+            $img = $request->file('cover');
+            $name = rand(1000, 9999) . $img->getClientOriginalName();
+            $img->move('images/pm_ruangan', $name);
+            $pm_ruangan->cover = $name;
+        }
+
+        Alert::success('Success','data berhasil diubah')->autoClose(1000);
         $pm_ruangan->save();
         return redirect()->route('pm_ruangan.index');
-
-
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        $pm_ruangan =  pm_ruangan::FindOrFail($id);
-
+        $pm_ruangan = pm_ruangan::findOrFail($id);
         $pm_ruangan->delete();
+        Alert::success('success','Data berhasil Dihapus');
         return redirect()->route('pm_ruangan.index');
-
     }
 }

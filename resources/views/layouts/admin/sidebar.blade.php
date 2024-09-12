@@ -18,15 +18,25 @@
                 </ul>
             </li>
 
-             <li class="nav-label">Extra</li>
+
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                        class="icon icon-single-copy-06"></i><span class="nav-text">Maintenance</span></a>
+                        class="icon icon-single-copy-06"></i><span class="nav-text">Peminjaman</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ route('m_barang.index') }}">Maintenance Barang</a></li>
-                    <li><a href="{{ route('lm_barang.index') }}">Laporan Maintenance Barang</a></li>
                     <li><a href="{{ route('pm_ruangan.index') }}">Peminjaman Ruangan</a></li>
+                    <li><a href="{{ route('pm_barang.index') }}">Peminjaman Barang</a></li>
                 </ul>
             </li>
+
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                class="icon icon-single-copy-06"></i><span class="nav-text">Maintenance</span></a>
+        <ul aria-expanded="false">
+            <li><a href="{{ route('m_barang.index') }}">Maintenance Barang</a></li>
+            <li><a href="{{ route('m_ruangan.index') }}">Maintenance Ruangan</a></li>
+            <li><a href="{{ route('lm_barang.index') }}">Laporan Maintenance Barang</a></li>
+            <li><a href="{{ route('lm_ruangan.index') }}">Laporan Maintenance Ruangan</a></li>
+
+        </ul>
+    </li>
         </ul>
     </div>
 </div>

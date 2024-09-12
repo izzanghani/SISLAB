@@ -11,20 +11,20 @@
                         {{ __('Dashboard') }}
                     </div>
                     <div class="float-end">
-                        <a href="{{ route('lm_barang.index') }}" class="btn btn-sm btn-primary">Kembali</a>
+                        <a href="{{ route('lm_ruangan.index') }}" class="btn btn-sm btn-primary">Kembali</a>
                     </div>
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('lm_barang.update', $lm_barang->id) }}" method="POST"
+                    <form action="{{ route('lm_ruangan.update', $lm_ruangan->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <div class="mb-3">
-                            <label for="">Maintenance Barang</label>
-                            <select name="id_m_barang" id="" class="form-control">
-                                @foreach ($m_barang as $item)
-                                    <option value="{{$item->id}}" {{$item->id == $lm_barang->id_m_barang ? 'selected': ''}}>{{ $item->id_m_barang }}</option>
+                            <label for="">Maintenance Ruangan</label>
+                            <select name="id_m_ruangan" id="" class="form-control">
+                                @foreach ($m_ruangan as $item)
+                                    <option value="{{$item->id}}" {{$item->id == $lm_ruangan->id_m_ruangan ? 'selected': ''}}>{{ $item->id }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -32,7 +32,7 @@
                         <div class="mb-3">
                             <label class="form-label">Keterangan</label>
                             <input type="text-area" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan"
-                                value="{{ $lm_barang->keterangan }}" placeholder="keterangan" required>
+                                value="{{ $lm_ruangan->keterangan }}" placeholder="keterangan" required>
                             @error('keterangan')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

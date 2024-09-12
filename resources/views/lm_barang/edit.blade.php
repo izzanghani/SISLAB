@@ -20,11 +20,12 @@
                         enctype="multipart/form-data">
                         @method('put')
                         @csrf
+
                         <div class="mb-3">
                             <label for="">Maintenance Barang</label>
                             <select name="id_m_barang" id="" class="form-control">
                                 @foreach ($m_barang as $item)
-                                    <option value="{{$item->id}}" {{$item->id == $lm_barang->id_m_barang ? 'selected': ''}}>{{ $item->id_m_barang }}</option>
+                                    <option value="{{$item->id}}" {{$item->id == $lm_barang->id_m_barang ? 'selected': ''}}>{{ $item->id }}</option>
                                 @endforeach
                             </select>
                         </div>
