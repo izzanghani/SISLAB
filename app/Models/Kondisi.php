@@ -15,4 +15,9 @@ class Kondisi extends Model
     {
         return $this->hasMany(Barang::class, 'id_kondisi');
     }
+
+    public function m_Barang()
+    {
+        return $this->hasMany(m_barang::class, 'id_kondisi');
+    }
 }

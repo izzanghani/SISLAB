@@ -2,64 +2,105 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
+use App\Models\Ruangan;
+use App\Models\Kondisi;
 use App\Models\m_Barang;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class MBarangController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this -> middleware('auth');
+    }
     public function index()
     {
-        //
+        $m_barang =  m_barang::all();
+        confirmDelete('Delete','Are you sure?');
+        return view('m_barang.index', compact('m_barang'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+        $barang =  Barang::all();
+        $ruangan =  Ruangan::all();
+        $kondisi = Kondisi::all();
+        return view('m_barang.create', compact('barang','ruangan', 'kondisi'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'posisi' => 'required',
+            'jenis_perbaikan' => 'required',
+            'waktu_pengerjaan' => 'required',
+
+        ]);
+
+        $m_barang = new m_barang();
+        $m_barang->id_barang = $request->id_barang;
+        $m_barang->id_ruangan = $request->id_ruangan;
+        $m_barang->posisi = $request->posisi;
+        $m_barang->jenis_perbaikan = $request->jenis_perbaikan;
+        $m_barang->waktu_pengerjaan = $request->waktu_pengerjaan;
+        $m_barang->id_kondisi = $request->id_kondisi;
+
+        Alert::success('Success','data berhasil disimpan')->autoClose(1000);
+        $m_barang->save();
+
+        return redirect()->route('m_barang.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(m_Barang $m_Barang)
+
+    public function show(m_barang $barang)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(m_Barang $m_Barang)
+
+    public function edit($id)
     {
-        //
+        $barang =  Barang::all();
+        $ruangan =  Ruangan::all();
+        $kondisi = Kondisi::all();
+        $m_barang = m_barang::findOrFail($id);
+        return view('m_barang.edit', compact('m_barang','barang','ruangan','kondisi'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, m_Barang $m_Barang)
+
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'posisi' => 'required',
+            'jenis_perbaikan' => 'required',
+            'waktu_pengerjaan' => 'required',
+
+        ]);
+
+        $m_barang = m_barang::findOrFail($id);
+        $m_barang->id_barang = $request->id_barang;
+        $m_barang->id_ruangan = $request->id_ruangan;
+        $m_barang->posisi = $request->posisi;
+        $m_barang->jenis_perbaikan = $request->jenis_perbaikan;
+        $m_barang->waktu_pengerjaan = $request->waktu_pengerjaan;
+        $m_barang->id_kondisi = $request->id_kondisi;
+
+
+        Alert::success('Success','data berhasil diubah')->autoClose(1000);
+        $m_barang->save();
+        return redirect()->route('m_barang.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(m_Barang $m_Barang)
+
+    public function destroy($id)
     {
-        //
+        $m_barang = m_barang::findOrFail($id);
+        $m_barang->delete();
+        Alert::success('success','Data berhasil Dihapus');
+        return redirect()->route('m_barang.index');
     }
 }

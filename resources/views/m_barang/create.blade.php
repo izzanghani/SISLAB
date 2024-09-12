@@ -6,32 +6,22 @@
             <div class="card">
                 <div class="card-header">
                     <div class="float-start">
-                        <h5>Barang</h5>
+                        <h5>Maintenance Barang</h5>
                     </div>
                     <div class="float-end">
-                        <a href="{{ route('barang.index') }}" class="btn btn-sm btn-primary">Kembali</a>
+                        <a href="{{ route('m_barang.index') }}" class="btn btn-sm btn-primary">Kembali</a>
                     </div>
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('m_barang.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-2">
-                            <label class="form-label">Nama Barang</label>
-                            <input type="text" class="form-control @error('barang') is-invalid @enderror" name="nama_barang"
-                            value="{{ old('barang') }}" placeholder="Nama barang" required>
-                            @error('barang')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
 
                         <div class="mb-3">
-                            <label for="">Nama Merk</label>
-                            <select name="id_merk" id="" class="form-control">
-                                @foreach ($merk as $data)
-                                    <option value="{{$data->id}}">{{ $data->nama_merk}}</option>
+                            <label for="">Nama Barang</label>
+                            <select name="id_barang" id="" class="form-control">
+                                @foreach ($barang as $data)
+                                    <option value="{{$data->id}}">{{ $data->nama_barang}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -41,16 +31,6 @@
                             <select name="id_ruangan" id="" class="form-control">
                                 @foreach ($ruangan as $data)
                                     <option value="{{$data->id}}">{{ $data->nama_ruangan}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label for="">kondisi</label>
-                            <select name="id_kondisi" id="" class="form-control">
-                                @foreach ($kondisi as $data)
-                                    <option value="{{$data->id}}">{{ $data->kondisi}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -67,14 +47,35 @@
                         </div>
 
                         <div class="mb-2">
-                            <label class="form-label">Spek</label>
-                            <input type="text" class="form-control @error('spek') is-invalid @enderror" name="spek"
-                            value="{{ old('spek') }}" placeholder="spek" required>
-                            @error('spek')
+                            <label class="form-label">Jenis Perbaikan</label>
+                            <input type="text" class="form-control @error('jenis_perbaikan') is-invalid @enderror" name="jenis_perbaikan"
+                            value="{{ old('jenis_perbaikan') }}" placeholder="jenis_perbaikan" required>
+                            @error('jenis_perbaikan')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="form-label">Waktu Pengerjaan</label>
+                            <input type="text" class="form-control @error('waktu_pengerjaan') is-invalid @enderror" name="waktu_pengerjaan"
+                            value="{{ old('waktu_pengerjaan') }}" placeholder="waktu_pengerjaan" required>
+                            @error('waktu_pengerjaan')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="">Kondisi</label>
+                            <select name="id_kondisi" id="" class="form-control">
+                                @foreach ($kondisi as $data)
+                                    <option value="{{$data->id}}">{{ $data->kondisi}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
 

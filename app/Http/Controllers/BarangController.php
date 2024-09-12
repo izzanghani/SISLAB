@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\Merk;
+use App\Models\Ruangan;
 use App\Models\Kondisi;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
@@ -25,8 +26,9 @@ class BarangController extends Controller
     public function create()
     {
         $merk =  Merk::all();
+        $ruangan =  Ruangan::all();
         $kondisi = Kondisi::all();
-        return view('barang.create', compact('merk', 'kondisi'));
+        return view('barang.create', compact('merk', 'ruangan', 'kondisi'));
     }
 
 
@@ -34,7 +36,6 @@ class BarangController extends Controller
     {
         $validated = $request->validate([
             'nama_barang' => 'required',
-            'ruangan' => 'required',
             'posisi' => 'required',
             'spek' => 'required',
 
@@ -43,7 +44,7 @@ class BarangController extends Controller
         $barang = new barang();
         $barang->nama_barang = $request->nama_barang;
         $barang->id_merk = $request->id_merk;
-        $barang->ruangan = $request->ruangan;
+        $barang->id_ruangan = $request->id_ruangan;
         $barang->id_kondisi = $request->id_kondisi;
         $barang->posisi = $request->posisi;
         $barang->spek = $request->spek;
@@ -64,9 +65,10 @@ class BarangController extends Controller
     public function edit($id)
     {
         $merk =  Merk::all();
+        $ruangan = Ruangan::all();
         $kondisi = Kondisi::all();
         $barang = barang::findOrFail($id);
-        return view('barang.edit', compact('barang','merk','kondisi'));
+        return view('barang.edit', compact('barang','merk','ruangan','kondisi'));
     }
 
 
@@ -74,7 +76,6 @@ class BarangController extends Controller
     {
         $this->validate($request, [
             'nama_barang' => 'required',
-            'ruangan' => 'required',
             'posisi' => 'required',
             'spek' => 'required',
 
@@ -83,7 +84,7 @@ class BarangController extends Controller
         $barang = barang::findOrFail($id);
         $barang->nama_barang = $request->nama_barang;
         $barang->id_merk = $request->id_merk;
-        $barang->ruangan = $request->ruangan;
+        $barang->id_ruangan = $request->id_ruangan;
         $barang->id_kondisi = $request->id_kondisi;
         $barang->posisi = $request->posisi;
         $barang->spek = $request->spek;

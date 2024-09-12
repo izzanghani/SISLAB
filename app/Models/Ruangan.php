@@ -11,5 +11,19 @@ class ruangan extends Model
       protected $filLable = ['id', 'nama_ruangan','nama_pic','jml_komputer','jml_leptop'];
     public $timestamps = true;
 
+    public function barang()
+    {
+        return $this->hasMany(Barang::class, 'id_ruangan');
+    }
+
+    public function m_Barang()
+    {
+        return $this->hasMany(m_barang::class, 'id_ruangan');
+    }
+
+    public function pm_ruangan()
+    {
+        return $this->hasMany(pm_ruangan::class, 'id_ruangan');
+    }
 }
 

@@ -24,3 +24,7 @@ Route::resource('merk', App\Http\Controllers\MerkController::class)->middleware(
 Route::resource('ruangan', App\Http\Controllers\RuanganController::class)->middleware('auth');
 Route::resource('kondisi', App\Http\Controllers\KondisiController::class)->middleware('auth');
 Route::resource('barang', App\Http\Controllers\BarangController::class)->middleware('auth');
+
+Route::resource('m_barang', App\Http\Controllers\MBarangController::class)->middleware('auth');
+Route::resource('lm_barang', App\Http\Controllers\LmBarangController::class)->middleware('auth');
+Route::resource('pm_ruangan', App\Http\Controllers\PmRuanganController::class)->middleware('auth');

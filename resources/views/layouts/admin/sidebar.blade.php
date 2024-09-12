@@ -18,15 +18,15 @@
                 </ul>
             </li>
 
-            {{-- <li class="nav-label">Extra</li>
+             <li class="nav-label">Extra</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                        class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
+                        class="icon icon-single-copy-06"></i><span class="nav-text">Maintenance</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="./page-register.html">Register</a></li>
-                    <li><a href="./page-login.html">Login</a></li>
-
+                    <li><a href="{{ route('m_barang.index') }}">Maintenance Barang</a></li>
+                    <li><a href="{{ route('lm_barang.index') }}">Laporan Maintenance Barang</a></li>
+                    <li><a href="{{ route('pm_ruangan.index') }}">Peminjaman Ruangan</a></li>
                 </ul>
-            </li> --}}
+            </li>
         </ul>
     </div>
 </div>

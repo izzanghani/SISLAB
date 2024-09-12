@@ -9,7 +9,7 @@
     <div class="row page-titles mx-0">
         <div class="col-sm-12 p-md-0">
             <div class="welcome-text">
-              <h4>Tables / barang</h4>
+              <h4>Tables / Maintenance Barang</h4>
             </div>
         </div>
     </div>
@@ -20,10 +20,10 @@
 <div class="card">
     <div class="card-header">
         <div class="float-start">
-            <h5>barang</h5>
+            <h5>Maintenance Barang</h5>
         </div>
         <div class="float-end ">
-            <a href="{{ route('barang.create') }}" class="btn btn-sm btn-primary">Add</a>
+            <a href="{{ route('m_barang.create') }}" class="btn btn-sm btn-primary">Add</a>
         </div>
     </div>
 
@@ -34,33 +34,33 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Barang</th>
-                        <th>Nama Merk</th>
-                        <th>Ruangan</th>
-                        <th>Kondisi</th>
+                        <th>Nama Ruangan</th>
                         <th>Posisi</th>
-                        <th>spek</th>
+                        <th>Jenis Perbaikan</th>
+                        <th>Waktu Pengerjaan</th>
+                        <th>Kondisi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @php $i = 1; @endphp
-                    @foreach ($barang as $data)
+                    @foreach ($m_barang as $data)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $data->nama_barang }}</td>
-                        <td>{{$data->merk->nama_merk}}</td>
+                        <td>{{$data->barang->nama_barang}}</td>
                         <td>{{$data->ruangan->nama_ruangan}}</td>
-                        <td>{{$data->kondisi->kondisi}}</td>
                         <td>{{ $data->posisi }}</td>
-                        <td>{{ $data->spek }}</td>
+                        <td>{{ $data->jenis_perbaikan }}</td>
+                        <td>{{ $data->waktu_pengerjaan }}</td>
+                        <td>{{$data->kondisi->kondisi}}</td>
 
                         <td>
-                            <form action="{{ route('barang.destroy', $data->id) }}" method="POST">
+                            <form action="{{ route('m_barang.destroy', $data->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ route('barang.edit', $data->id) }}"
+                                <a href="{{ route('m_barang.edit', $data->id) }}"
                                     class="btn btn-sm btn-warning">Edit</a> |
-                                <a href="{{ route('barang.destroy', $data->id)}}"
+                                <a href="{{ route('m_barang.destroy', $data->id)}}"
                                      class="btn btn-sm btn-danger" data-confirm-delete="true">Delete</a>
                             </form>
                         </td>

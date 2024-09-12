@@ -40,32 +40,13 @@
                             </select>
                         </div>
 
-                        <div class="dropdown">
-                            <label for="ruangan">Ruangan</label>
-                            <select class="form-control" name="ruangan">
-                                <option value=""></option>
-                                <option value="lab2.1">Lab 2.1</option>
-                                <option value="lab2.2">Lab 2.2</option>
-                                <option value="lab2.3">Lab 2.3</option>
-                                <option value="lab2.4">Lab 2.4</option>
-                                <option value="lab3.1">Lab 3.1</option>
-                                <option value="lab3.2">Lab 3.2</option>
-                                <option value="lab3.3">Lab 3.3</option>
-                                <option value="lab3.4">Lab 3.4</option>
-                                <option value="lab3.5">Lab 3.5</option>
-                                <option value="lab3.6">Lab 3.6</option>
-                                <option value="lab3.7">Lab 3.7</option>
-                                <option value="lab4.1">Lab 4.1</option>
-                                <option value="lab4.2">Lab 4.2</option>
-                                <option value="lab4.3">Lab 4.3</option>
-                                <option value="lab4.4">Lab 4.4</option>
-                                <option value="lab4.5">Lab 4.5</option>
+                        <div class="mb-3">
+                            <label for="">Nama Ruangan</label>
+                            <select name="id_ruangan" id="" class="form-control">
+                                @foreach ($ruangan as $item)
+                                    <option value="{{$item->id}}" {{$item->id == $barang->id_ruangan ? 'selected': ''}}>{{ $item->nama_merk }}</option>
+                                @endforeach
                             </select>
-                            @error('ruangan')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
                         </div>
 
                         <div class="mb-3">
