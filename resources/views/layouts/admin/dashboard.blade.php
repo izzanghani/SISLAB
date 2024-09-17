@@ -1,3 +1,28 @@
+{{-- @extends('layouts.admin')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <br>
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection --}}
+
 @extends('layouts.admin')
 @section('content')
 
@@ -18,8 +43,8 @@
         <div class="card">
             <div class="stat-widget-two card-body">
                 <div class="stat-content">
-                    <div class="stat-text"><h4>Jumlah Data di Tabel Merk</h4></div>
-                    <div class="stat-digit"> <i class="fa "></i> Data</div>
+                    <div class="stat-text"><h4>Jumlah Data di Tabel Barang</h4></div>
+                    <div class="stat-digit"> <i class="fa "></i>{{$barang}} Data</div>
                 </div>
                 <div class="progress">
                     <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
@@ -32,7 +57,7 @@
             <div class="stat-widget-two card-body">
                 <div class="stat-content">
                     <div class="stat-text"><H4>Jumlah Data di Tabel Ruangan</H4></div>
-                    <div class="stat-digit"> <i class="fa "></i> Data</div>
+                    <div class="stat-digit"> <i class="fa "></i>{{$ruangan}} Data</div>
                 </div>
                 <div class="progress">
                     <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
@@ -44,8 +69,8 @@
         <div class="card">
             <div class="stat-widget-two card-body">
                 <div class="stat-content">
-                    <div class="stat-text"><H4>Jumlah Data di Tabel Kondisi</H4></div>
-                    <div class="stat-digit"> <i class="fa "></i> Data</div>
+                    <div class="stat-text"><H4>Jumlah Data di Tabel Merk</H4></div>
+                    <div class="stat-digit"> <i class="fa "></i>{{$merk}} Data</div>
                 </div>
                 <div class="progress">
                     <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>

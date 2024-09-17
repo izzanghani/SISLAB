@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Barang;
+use App\Models\Merk;
+use App\Models\Ruangan;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $barang = Barang::count('id');
+        $merk = Merk::count('id');
+        $ruangan = Ruangan::count('id');
+
+        return view('home',compact('barang','merk','ruangan'));
     }
 }
