@@ -33,3 +33,6 @@ Route::resource('lm_ruangan', App\Http\Controllers\LmRuanganController::class)->
 
 Route::resource('pm_ruangan', App\Http\Controllers\PmRuanganController::class)->middleware('auth');
 Route::resource('pm_barang', App\Http\Controllers\PmBarangController::class)->middleware('auth');
+
+Route::resource('l_barang', App\Http\Controllers\LBarangController::class)->middleware('auth');
+Route::resource('l_ruangan', App\Http\Controllers\LRuanganController::class)->middleware('auth');

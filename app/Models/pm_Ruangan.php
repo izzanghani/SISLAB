@@ -15,4 +15,10 @@ class pm_Ruangan extends Model
     {
         return $this->belongsTo(Ruangan::class, 'id_ruangan');
     }
+
+    public function deleteImage(){
+        if($this->cover && file_exists(public_path('images/pm_ruangan' . $this->cover))){
+            return unlink(public_path('images/pm_ruangan' . $this->cover));
+        }
+    }
 }

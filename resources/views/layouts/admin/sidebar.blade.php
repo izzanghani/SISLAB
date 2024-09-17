@@ -24,6 +24,8 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ route('pm_ruangan.index') }}">Peminjaman Ruangan</a></li>
                     <li><a href="{{ route('pm_barang.index') }}">Peminjaman Barang</a></li>
+                    <li><a href="{{ route('l_barang.index') }}">Laporan Barang</a></li>
+                    <li><a href="{{ route('l_ruangan.index') }}">Laporan Ruangan</a></li>
                 </ul>
             </li>
 
