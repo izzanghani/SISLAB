@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('id_ruangan')->references('id')->on('ruangans')->ondelete('cascade');
             $table->string('tanggal_peminjaman');
             $table->string('keterangan');
-            $table->string('cover');
+            $table->string('cover'); 
             $table->timestamps();
         });
     }

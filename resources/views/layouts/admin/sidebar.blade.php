@@ -34,9 +34,17 @@
         <ul aria-expanded="false">
             <li><a href="{{ route('m_barang.index') }}">Maintenance Barang</a></li>
             <li><a href="{{ route('m_ruangan.index') }}">Maintenance Ruangan</a></li>
+            <i class="bi bi-file-earmark-text"></i>
+        </ul>
+    </li>
+
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                  class="icon icon-single-copy-06"></i><span class="nav-text">Laporan</span></a>
+        <ul aria-expanded="false">
+            <li><a href="{{ route('l_barang.index') }}">Laporan Barang</a></li>
+            <li><a href="{{ route('l_ruangan.index') }}">Laporan Ruangan</a></li>
             <li><a href="{{ route('lm_barang.index') }}">Laporan Maintenance Barang</a></li>
             <li><a href="{{ route('lm_ruangan.index') }}">Laporan Maintenance Ruangan</a></li>
-
         </ul>
     </li>
         </ul>

@@ -13,6 +13,9 @@
     <link href="{{ asset('asset/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet">
 
+     {{-- datatables styles --}}
+     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css">
+
 @yield('styles')
 
 </head>
@@ -103,6 +106,16 @@
     <!--**********************************
         Scripts
     ***********************************-->
+      {{-- DataTable scripts--}}
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+      <script src="https://cdn.datatables.net/2.0.7/js/dataTables.bootstrap5.js"></script>
+      <script>
+          $(document).ready(function () {
+                  $('#dataTable').DataTable();
+              });
+      </script>
+
     <!-- Required vendors -->
     <script src="{{ asset('asset/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('asset/js/quixnav-init.js') }}"></script>

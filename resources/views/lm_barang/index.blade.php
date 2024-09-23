@@ -23,7 +23,12 @@
             <h5>Laporan Maintenance Barang</h5>
         </div>
         <div class="float-end ">
-            <a href="{{ route('lm_barang.create') }}" class="btn btn-sm btn-primary">Add</a>
+            <form action="{{ route('lm_barang.view-pdf') }}" method="post">
+                @csrf
+                <a href="{{ route('lm_barang.create') }}" class="btn btn-sm btn-primary">Add</a>
+                <button type="submit" class="btn text-light btn-sm btn-success">Export PDF</button>
+            </form>
+
         </div>
     </div>
 

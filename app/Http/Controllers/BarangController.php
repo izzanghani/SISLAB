@@ -7,14 +7,13 @@ use App\Models\Merk;
 use App\Models\Ruangan;
 use App\Models\Kondisi;
 use RealRashid\SweetAlert\Facades\Alert;
+
+use Storage;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
 {
-    public function __construct()
-    {
-        $this -> middleware('auth');
-    }
+
     public function index()
     {
         $barang =  Barang::all();

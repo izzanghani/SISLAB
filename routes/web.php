@@ -36,3 +36,5 @@ Route::resource('pm_barang', App\Http\Controllers\PmBarangController::class)->mi
 
 Route::resource('l_barang', App\Http\Controllers\LBarangController::class)->middleware('auth');
 Route::resource('l_ruangan', App\Http\Controllers\LRuanganController::class)->middleware('auth');
+
+Route::post('lm_barang/export-lm_barang', [App\Http\Controllers\LmBarangController::class, 'viewPDF'])->name('lm_barang.view-pdf');

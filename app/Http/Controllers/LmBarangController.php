@@ -5,10 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\m_Barang;
 use App\Models\lm_Barang;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 use Illuminate\Http\Request;
 
 class LmBarangController extends Controller
 {
+    public function viewPDF()
+    {
+        $lm_barang = lm_Barang::latest()->get();
+
+        $data = [
+            'title' => 'Data Produk',
+            'date' => date('m/d/Y'),
+            'lm_barang' => $lm_barang,
+        ];
+
+        $pdf = PDF::loadView('lm_barang.export-pdf', $data)
+            ->setPaper('a4', 'portrait');
+        return $pdf->stream();
+    }
+
     public function __construct()
     {
         $this -> middleware('auth');

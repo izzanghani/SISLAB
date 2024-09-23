@@ -20,7 +20,7 @@
 <div class="card">
     <div class="card-header">
         <div class="float-start">
-            <h5>barang</h5>
+            <h5>Barang</h5>
         </div>
         <div class="float-end ">
             <a href="{{ route('barang.create') }}" class="btn btn-sm btn-primary">Add</a>
@@ -29,7 +29,7 @@
 
     <div class="card-body">
         <div class="table-responsive text-nowrap">
-            <table class="table" id="example">
+            <table class="table" id="dataTable">
                 <thead>
                     <tr>
                         <th>No</th>
