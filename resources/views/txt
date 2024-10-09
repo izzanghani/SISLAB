@@ -1,0 +1,141 @@
+{{-- @extends('layouts.admin')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <br>
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection --}}
+
+@extends('layouts.admin')
+@section('content')
+<style>
+    .text{
+        margin-bottom: 20%
+    }
+    .www{
+        background-color: rgb(208, 212, 210);
+    }
+</style>
+<div class="container-fluid ">
+    <div class="row page-titles mx-0">
+        <div class="col-sm-12 p-md-0">
+            <div class="welcome-text">
+              <center><h1>SEMALAT DATANG DI HALAMAN ADMIN</h1></center>
+              <center><h4>Hi, welcome back!</h4></center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class=" p-8">
+    <div class="grid grid-cols-3 gap-7 mb-2">
+     <div class="bg-green-500 text-white p-4 rounded-lg flex items-center">
+      <i class="fas fa-tools fa-2x mr-4">
+      </i>
+      <div>
+       <h2 class="text-3xl font-bold">
+        90
+       </h2>
+       <p>
+        maintenacence
+       </p>
+      </div>
+     </div>
+     <div class="bg-red-500 text-white p-4 rounded-lg flex items-center">
+      <i class="fas fa-tools fa-2x mr-4">
+      </i>
+      <div>
+       <h2 class="text-3xl font-bold">
+        43
+       </h2>
+       <p>
+        Sedang di pinjam
+       </p>
+      </div>
+     </div>
+     <div class="bg-blue-500 text-white p-4 rounded-lg flex items-center">
+      <i class="fas fa-tools fa-2x mr-4">
+      </i>
+      <div>
+       <h2 class="text-3xl font-bold">
+        903
+       </h2>
+       <p>
+        Total keseluruhan
+       </p>
+      </div>
+     </div>
+     <div class="bg-blue-300 text-white p-4 rounded-lg flex items-center">
+      <i class="fas fa-tools fa-2x mr-4">
+      </i>
+      <div>
+       <h2 class="text-3xl font-bold">
+        21
+       </h2>
+       <p>
+        maintenacence
+       </p>
+      </div>
+     </div>
+     <div class="bg-yellow-500 text-white p-4 rounded-lg flex items-center">
+      <i class="fas fa-tools fa-2x mr-4">
+      </i>
+      <div>
+       <h2 class="text-3xl font-bold">
+        23
+       </h2>
+       <p>
+        Sedang di pinjam
+       </p>
+      </div>
+     </div>
+     <div class="bg-purple-500 text-white p-4 rounded-lg flex items-center">
+      <i class="fas fa-tools fa-2x mr-4">
+      </i>
+      <div>
+       <h2 class="text-3xl font-bold">
+        79
+       </h2>
+       <p>
+        Total keseluruhan
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="www p-4 rounded-lg">
+     <div class="flex items-center">
+      <img alt="Building Image" class="rounded-lg mr-4" height="200" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-LmQ09WWGIGwOeeA4ArnRw0x5/user-uJPET5fjNenSso8wCETWVNOp/img-9mjDtgb7jNSFGCn9rjYQ7TVC.png?st=2024-09-23T02%3A48%3A11Z&amp;se=2024-09-23T04%3A48%3A11Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-22T23%3A44%3A23Z&amp;ske=2024-09-23T23%3A44%3A23Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=omUDhwNA79XhS5ZdsZf7mfp5JIU/UHREcfGUjCQ7JZk%3D" width="300"/>
+      <div class="text">
+       <h2 class="text-white text-xl font-bold">
+        selamat datang
+       </h2>
+       <p class="text-white">
+        semoga hari anda menyenangkan
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+</div>
+
+
+
+@endsection

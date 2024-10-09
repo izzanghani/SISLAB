@@ -9,7 +9,7 @@
     <div class="row page-titles mx-0">
         <div class="col-sm-12 p-md-0">
             <div class="welcome-text">
-              <h4>Tables / Laporan Barang</h4>
+              <h4>Tables / Peminjaman Barang</h4>
             </div>
         </div>
     </div>
@@ -20,11 +20,13 @@
 <div class="card">
     <div class="card-header">
         <div class="float-start">
-            <h5>Laporan Barang</h5>
+            <h5>Peminjaman Barang</h5>
         </div>
-        <div class="float-end ">
-            <a href="{{ route('l_barang.create') }}" class="btn btn-sm btn-primary">Add</a>
-        </div>
+        <form action="{{ route('l_barang.view-pdf') }}" method="post">
+            @csrf
+
+            <button type="submit" class="btn text-light btn-sm btn-success">Export PDF</button>
+        </form>
     </div>
 
     <div class="card-body">
@@ -34,35 +36,37 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Peminjam</th>
-                        <th>Kondisi</th>
+                        <th>Email</th>
+                        <th>Instansi</th>
+                        <th>Nama Barang</th>
+                        <th>Nama Ruangan</th>
+                        <th>Tanggal Peminjaman</th>
+                        <th>Tanggal Pengembalian</th>
                         <th>Keterangan</th>
+                        <th>Kondisi</th>
                         <th>Dokumentasi</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @php $i = 1; @endphp
-                    @foreach ($l_barang as $data)
+                    @foreach ($pm_barang as $data)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{$data->pm_barang->nama_peminjam}}</td>
-                        <td>{{$data->kondisi->kondisi}}</td>
+                        <td>{{ $data->nama_peminjam }}</td>
+                        <td>{{ $data->email }}</td>
+                        <td>{{ $data->instansi }}</td>
+                        <td>{{$data->barang->nama_barang}}</td>
+                        <td>{{$data->ruangan->nama_ruangan}}</td>
+                        <td>{{ $data->tanggal_peminjaman }}</td>
+                        <td>{{ $data->tanggal_pengembalian }}</td>
                         <td>{{ $data->keterangan }}</td>
+                        <td>{{$data->kondisi->kondisi}}</td>
                         <td>
-                            <img src="{{ asset('/images/l_barang/' . $data->cover) }}"
+                            <img src="{{ asset('/images/pm_barang/' . $data->cover) }}"
                                 style="width: 150px">
                         </td>
 
-                        <td>
-                            <form action="{{ route('l_barang.destroy', $data->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a href="{{ route('l_barang.edit', $data->id) }}"
-                                    class="btn btn-sm btn-warning">Edit</a> |
-                                <a href="{{ route('l_barang.destroy', $data->id)}}"
-                                     class="btn btn-sm btn-danger" data-confirm-delete="true">Delete</a>
-                            </form>
-                        </td>
+
                     </tr>
                     @endforeach
                 </tbody>

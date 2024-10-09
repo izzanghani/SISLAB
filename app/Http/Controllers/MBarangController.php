@@ -20,6 +20,8 @@ class MBarangController extends Controller
         $m_barang =  m_barang::all();
         confirmDelete('Delete','Are you sure?');
         return view('m_barang.index', compact('m_barang'));
+        return view('lm_barang.index', compact('m_barang'));
+
     }
 
 

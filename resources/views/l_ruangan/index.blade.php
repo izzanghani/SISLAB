@@ -22,9 +22,11 @@
         <div class="float-start">
             <h5>Laporan Ruangan</h5>
         </div>
-        <div class="float-end ">
-            <a href="{{ route('l_ruangan.create') }}" class="btn btn-sm btn-primary">Add</a>
-        </div>
+        <form action="{{ route('l_ruangan.view-pdf') }}" method="post">
+            @csrf
+
+            <button type="submit" class="btn text-light btn-sm btn-success">Export PDF</button>
+        </form>
     </div>
 
     <div class="card-body">
@@ -33,38 +35,35 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Penanggungjawab</th>
+                        <th>Penanggung Jawab</th>
+                        <th>Instansi</th>
+                        <th>Jenis Kegiatan</th>
+                        <th>Nama Ruangan</th>
+                        <th>Tanggal Peminjaman</th>
                         <th>Keterangan</th>
                         <th>Dokumentasi</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @php $i = 1; @endphp
-                    @foreach ($l_ruangan as $data)
+                    @foreach ($pm_ruangan as $data)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{$data->pm_ruangan->penanggungjawab}}</td>
-                        <td>{{ $data->keterangan }}</td>
+                        <td>{{ $data->penanggungjawab }}</td>
+                        <td>{{ $data->instansi }}</td>
+                        <td>{{$data->jenis_kegiatan}}</td>
+                        <td>{{$data->ruangan->nama_ruangan}}</td>
+                        <td>{{ $data->tanggal_peminjaman }}</td>
+                        <td  style="width: 80px">{{ $data->keterangan }}</td>
                         <td>
-                            <img src="{{ asset('/images/l_ruangan/' . $data->cover) }}"
+                            <img src="{{ asset('/images/pm_ruangan/' . $data->cover) }}"
                                 style="width: 150px">
                         </td>
-
-                        <td>
-                            <form action="{{ route('l_ruangan.destroy', $data->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a href="{{ route('l_ruangan.edit', $data->id) }}"
-                                    class="btn btn-sm btn-warning">Edit</a> |
-                                <a href="{{ route('l_ruangan.destroy', $data->id)}}"
-                                     class="btn btn-sm btn-danger" data-confirm-delete="true">Delete</a>
-                            </form>
-                        </td>
-                    </tr>
+                </tr>
                     @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>

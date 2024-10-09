@@ -12,12 +12,12 @@ class LmBarangController extends Controller
 {
     public function viewPDF()
     {
-        $lm_barang = lm_Barang::latest()->get();
+        $m_barang = m_Barang::latest()->get();
 
         $data = [
             'title' => 'Data Produk',
             'date' => date('m/d/Y'),
-            'lm_barang' => $lm_barang,
+            'm_barang' => $m_barang,
         ];
 
         $pdf = PDF::loadView('lm_barang.export-pdf', $data)
@@ -31,9 +31,10 @@ class LmBarangController extends Controller
     }
     public function index()
     {
-        $lm_barang =  lm_barang::all();
+        $m_barang =  m_barang::all();
+
         confirmDelete('Delete','Are you sure?');
-        return view('lm_barang.index', compact('lm_barang'));
+        return view('lm_barang.index', compact('m_barang'));
     }
 
 

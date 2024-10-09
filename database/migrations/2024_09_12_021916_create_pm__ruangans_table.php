@@ -19,8 +19,9 @@ return new class extends Migration
             $table->bigInteger('id_ruangan')->unsigned();
             $table->foreign('id_ruangan')->references('id')->on('ruangans')->ondelete('cascade');
             $table->string('tanggal_peminjaman');
+            $table->string('tanggal_pengembalian');
             $table->string('keterangan');
-            $table->string('cover'); 
+            $table->string('cover');
             $table->timestamps();
         });
     }

@@ -2,49 +2,41 @@
 <html>
 
 <head>
-    <title>Export Produk</title>
+    <title>Export PDF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
     <center>
-        <h1>{{ $title }}</h1>
+        <h2>Data Laporan Maintenance Ruangan</h2>
     </center>
     <p>Tanggal: {{ $date }}</p>
     <table id="dataTable" class="table ">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Barang</th>
-                <th>Nama Merk</th>
-                <th>Ruangan</th>
+                <th>Nama Ruangan</th>
+                <th>Jenis Perbaikan</th>
+                <th>Waktu Pengerjaan</th>
                 <th>Kondisi</th>
-                <th>Posisi</th>
-                <th>spek</th>
 
             </tr>
         </thead>
-        
-        <tbody>
+        <tbody class="table-border-bottom-0">
             @php $i = 1; @endphp
-            @forelse ($barang as $data)
+            @foreach ($m_ruangan as $data)
             <tr>
                 <td>{{ $i++ }}</td>
-                <td>{{ $data->nama_barang }}</td>
-                <td>{{$data->merk->nama_merk}}</td>
                 <td>{{$data->ruangan->nama_ruangan}}</td>
+                <td>{{ $data->jenis_perbaikan }}</td>
+                <td>{{ $data->waktu_pengerjaan }}</td>
                 <td>{{$data->kondisi->kondisi}}</td>
-                <td>{{ $data->posisi }}</td>
-                <td>{{ $data->spek }}</td>
-               </tr>
-            @empty
-            <tr>
-                <td colspan="5" class="text-center">
-                    Data data belum Tersedia.
-                </td>
+
+
             </tr>
-            @endforelse
+            @endforeach
         </tbody>
+
     </table>
 
 </body>

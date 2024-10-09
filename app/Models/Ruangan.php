@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ruangan extends Model
 {
     use HasFactory;
-      protected $filLable = ['id', 'nama_ruangan','nama_pic','jml_komputer','jml_leptop'];
+      protected $filLable = ['id', 'nama_ruangan','nama_pic'];
     public $timestamps = true;
 
     public function barang()
@@ -24,6 +24,11 @@ class ruangan extends Model
     public function pm_ruangan()
     {
         return $this->hasMany(pm_ruangan::class, 'id_ruangan');
+    }
+
+    public function detail_ruangan()
+    {
+        return $this->hasMany(Deteail_ruangan::class, 'id_ruangan');
     }
 }
 

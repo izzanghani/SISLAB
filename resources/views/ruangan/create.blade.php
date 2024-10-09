@@ -38,32 +38,6 @@
                             @enderror
                         </div>
 
-                        <div class="mb-2">
-                            <label class="form-label">Jumlah Komputer</label>
-                            <input type="text" class="form-control @error('jml_komputer') is-invalid @enderror" name="jml_komputer"
-                            value="{{ old('jml_komputer') }}" placeholder="Jumlah kompter" required>
-                            @error('jml_komputer')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-2">
-                            <label class="form-label">Jumlah Laptop</label>
-                            <input type="text" class="form-control @error('jml_leptop') is-invalid @enderror" name="jml_leptop"
-                            value="{{ old('jml_leptop') }}" placeholder="Jumlah laptop" required>
-                            @error('jml_leptop')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                       
-
-
-
 
                     <br>
                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>

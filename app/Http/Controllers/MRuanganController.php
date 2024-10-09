@@ -19,6 +19,7 @@ class MRuanganController extends Controller
         $m_ruangan =  m_ruangan::all();
         confirmDelete('Delete','Are you sure?');
         return view('m_ruangan.index', compact('m_ruangan'));
+        return view('lm_ruangan.index', compact('m_ruangan'));
     }
 
 
@@ -51,7 +52,7 @@ class MRuanganController extends Controller
     }
 
 
-    public function show(m_ruangan $barang)
+    public function show(m_ruangan $ruangan)
     {
         //
     }

@@ -21,9 +21,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('merk', App\Http\Controllers\MerkController::class)->middleware('auth');
+Route::resource('kategori', App\Http\Controllers\KategoriController::class)->middleware('auth');
 Route::resource('ruangan', App\Http\Controllers\RuanganController::class)->middleware('auth');
 Route::resource('kondisi', App\Http\Controllers\KondisiController::class)->middleware('auth');
 Route::resource('barang', App\Http\Controllers\BarangController::class)->middleware('auth');
+Route::resource('detail_ruangan', App\Http\Controllers\DetailRuanganController::class)->middleware('auth');
 
 Route::resource('m_barang', App\Http\Controllers\MBarangController::class)->middleware('auth');
 Route::resource('m_ruangan', App\Http\Controllers\MruanganController::class)->middleware('auth');
@@ -38,3 +40,6 @@ Route::resource('l_barang', App\Http\Controllers\LBarangController::class)->midd
 Route::resource('l_ruangan', App\Http\Controllers\LRuanganController::class)->middleware('auth');
 
 Route::post('lm_barang/export-lm_barang', [App\Http\Controllers\LmBarangController::class, 'viewPDF'])->name('lm_barang.view-pdf');
+Route::post('lm_ruangan/export-lm_ruangan', [App\Http\Controllers\LmRuanganController::class, 'viewPDF'])->name('lm_ruangan.view-pdf');
+Route::post('l_barang/export-l_barang', [App\Http\Controllers\LBarangController::class, 'viewPDF'])->name('l_barang.view-pdf');
+Route::post('l_ruangan/export-l_ruangan', [App\Http\Controllers\LRuanganController::class, 'viewPDF'])->name('l_ruangan.view-pdf');

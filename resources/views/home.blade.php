@@ -30,7 +30,7 @@
     <div class="row page-titles mx-0">
         <div class="col-sm-12 p-md-0">
             <div class="welcome-text">
-              <center><h1>SEMALAT DATANG DI HALAMAN ADMIN</h1></center>
+              <center><h1>SELAMAT DATANG DI HALAMAN ADMIN</h1></center>
               <center><h4>Hi, welcome back!</h4></center>
             </div>
         </div>
@@ -113,7 +113,7 @@
         </div> --}}
 
 
-</div>
+</div>s
 </div>
 
 @endsection

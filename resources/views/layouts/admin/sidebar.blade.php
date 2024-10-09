@@ -11,9 +11,11 @@
                         class="icon icon-layout-25"></i><span class="nav-text">Table</span></a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('merk.index') }}">Merk</a></li>
+                    <li><a href="{{ route('kategori.index') }}">Kategori</a></li>
                     <li><a href="{{ route('ruangan.index') }}">Ruangan</a></li>
                     <li><a href="{{ route('kondisi.index') }}">Kondisi</a></li>
                     <li><a href="{{ route('barang.index') }}">Barang</a></li>
+                    <li><a href="{{ route('detail_ruangan.index') }}">Detail Ruangan</a></li>
 
                 </ul>
             </li>
@@ -24,8 +26,6 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ route('pm_ruangan.index') }}">Peminjaman Ruangan</a></li>
                     <li><a href="{{ route('pm_barang.index') }}">Peminjaman Barang</a></li>
-                    <li><a href="{{ route('l_barang.index') }}">Laporan Barang</a></li>
-                    <li><a href="{{ route('l_ruangan.index') }}">Laporan Ruangan</a></li>
                 </ul>
             </li>
 

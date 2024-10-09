@@ -75,6 +75,18 @@
                         </div>
 
                         <div class="mb-3">
+                            <label class="form-label">Tanggal Pengembalian</label>
+                            <input type="text" class="form-control @error('tanggal_pengembalian') is-invalid @enderror" name="tanggal_pengembalian"
+                                value="{{ $pm_barang->tanggal_pengembalian }}" placeholder="tanggal pengembalian" required>
+                            @error('tanggal_pengembalian')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+
+                        <div class="mb-3">
                             <label class="form-label">Keterangan</label>
                             <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan"
                                 value="{{ $pm_ruangan->keterangan }}" placeholder="keterangan" required>

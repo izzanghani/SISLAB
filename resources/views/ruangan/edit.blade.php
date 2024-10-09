@@ -42,32 +42,6 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah komputer</label>
-                            <input type="text" class="form-control @error('jml_komputer') is-invalid @enderror" name="jml_komputer"
-                                value="{{ $ruangan->jml_komputer }}" placeholder="jumlah komputer" required>
-                            @error('jml_komputer')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Laptop</label>
-                            <input type="text" class="form-control @error('jml_leptop') is-invalid @enderror" name="jml_leptop"
-                                value="{{ $ruangan->jml_leptop }}" placeholder="jumlah laptop" required>
-                            @error('jml_leptop')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-
-
-
-
-
                         <button type="submit" class="btn btn-sm btn-primary">SIMPAN</button>
                         <button type="reset" class="btn btn-sm btn-danger">RESET</button>
                     </form>

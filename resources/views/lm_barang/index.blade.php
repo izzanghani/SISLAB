@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 
 @section('styles')
@@ -9,7 +10,7 @@
     <div class="row page-titles mx-0">
         <div class="col-sm-12 p-md-0">
             <div class="welcome-text">
-              <h4>Tables / Laporan Maintenance Barang</h4>
+              <h4>Tables / Maintenance Barang</h4>
             </div>
         </div>
     </div>
@@ -20,17 +21,17 @@
 <div class="card">
     <div class="card-header">
         <div class="float-start">
-            <h5>Laporan Maintenance Barang</h5>
+            <h5>Maintenance Barang</h5>
         </div>
         <div class="float-end ">
             <form action="{{ route('lm_barang.view-pdf') }}" method="post">
                 @csrf
-                <a href="{{ route('lm_barang.create') }}" class="btn btn-sm btn-primary">Add</a>
+
                 <button type="submit" class="btn text-light btn-sm btn-success">Export PDF</button>
             </form>
 
         </div>
-    </div>
+       </div>
 
     <div class="card-body">
         <div class="table-responsive text-nowrap">
@@ -38,30 +39,28 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Maintenance Barang</th>
-                        <th>Keterangan</th>
-                        <th>Aksi</th>
+                        <th>Nama Barang</th>
+                        <th>Nama Ruangan</th>
+                        <th>Posisi</th>
+                        <th>Jenis Perbaikan</th>
+                        <th>Waktu Pengerjaan</th>
+                        <th>Kondisi</th>
+
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @php $i = 1; @endphp
-                    @foreach ($lm_barang as $data)
+                    @foreach ($m_barang as $data)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{$data->m_barang->id}}</td>
-                        <td>{{ $data->keterangan }}</td>
+                        <td>{{$data->barang->nama_barang}}</td>
+                        <td>{{$data->ruangan->nama_ruangan}}</td>
+                        <td>{{ $data->posisi }}</td>
+                        <td>{{ $data->jenis_perbaikan }}</td>
+                        <td>{{ $data->waktu_pengerjaan }}</td>
+                        <td>{{$data->kondisi->kondisi}}</td>
 
-                        <td>
-                            <form action="{{ route('lm_barang.destroy', $data->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a href="{{ route('lm_barang.edit', $data->id) }}"
-                                    class="btn btn-sm btn-warning">Edit</a> |
-                                <a href="{{ route('lm_barang.destroy', $data->id)}}"
-                                     class="btn btn-sm btn-danger" data-confirm-delete="true">Delete</a>
-                            </form>
-                        </td>
-                    </tr>
+                     </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -78,3 +77,4 @@
     new DataTable('#example');
 </script>
 @endpush
+

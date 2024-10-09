@@ -35,6 +35,7 @@ class PmRuanganController extends Controller
             'instansi' => 'required',
             'jenis_kegiatan' => 'required',
             'tanggal_peminjaman' => 'required',
+            'tanggal_pengembalian' => 'required',
             'keterangan' => 'required',
 
         ]);
@@ -45,6 +46,7 @@ class PmRuanganController extends Controller
         $pm_ruangan->jenis_kegiatan = $request->jenis_kegiatan;
         $pm_ruangan->id_ruangan = $request->id_ruangan;
         $pm_ruangan->tanggal_peminjaman = $request->tanggal_peminjaman;
+        $pm_ruangan->tanggal_pengembalian = $request->tanggal_pengembalian;
         $pm_ruangan->keterangan = $request->keterangan;
 
         if ($request->hasFile('cover')) {
@@ -82,6 +84,7 @@ class PmRuanganController extends Controller
             'instansi' => 'required',
             'jenis_kegiatan' => 'required',
             'tanggal_peminjaman' => 'required',
+            'tanggal_pengembalian' => 'required',
             'keterangan' => 'required',
 
         ]);
@@ -92,6 +95,7 @@ class PmRuanganController extends Controller
         $pm_ruangan->jenis_kegiatan = $request->jenis_kegiatan;
         $pm_ruangan->id_ruangan = $request->id_ruangan;
         $pm_ruangan->tanggal_peminjaman = $request->tanggal_peminjaman;
+        $pm_ruangan->tanggal_pengembalian = $request->tanggal_pengembalian;
         $pm_ruangan->keterangan = $request->keterangan;
 
         if ($request->hasFile('cover')) {

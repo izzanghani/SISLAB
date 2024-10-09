@@ -37,10 +37,10 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="">Nama Ruangan</label>
-                            <select name="id_ruangan" id="" class="form-control">
-                                @foreach ($ruangan as $data)
-                                    <option value="{{$data->id}}">{{ $data->nama_ruangan}}</option>
+                            <label for="">Kategori</label>
+                            <select name="id_kategori" id="" class="form-control">
+                                @foreach ($kategori as $data)
+                                    <option value="{{$data->id}}">{{ $data->nama_kategori}}</option>
                                 @endforeach
                             </select>
                         </div>

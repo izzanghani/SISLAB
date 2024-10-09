@@ -5,10 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\pm_Ruangan;
 use App\Models\l_Ruangan;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 use Illuminate\Http\Request;
 
 class LRuanganController extends Controller
 {
+    public function viewPDF()
+    {
+        $pm_ruangan = pm_Ruangan::latest()->get();
+
+        $data = [
+            'title' => 'Data Produk',
+            'date' => date('m/d/Y'),
+            'pm_ruangan' => $pm_ruangan,
+        ];
+
+        $pdf = PDF::loadView('l_ruangan.export-pdf', $data)
+            ->setPaper('a4', 'portrait');
+        return $pdf->stream();
+    }
+
     public function __construct()
     {
         $this -> middleware('auth');
@@ -16,8 +32,10 @@ class LRuanganController extends Controller
     public function index()
     {
         $l_ruangan =  l_ruangan::all();
+        $pm_ruangan =  pm_ruangan::all();
+
         confirmDelete('Delete','Are you sure?');
-        return view('l_ruangan.index', compact('l_ruangan'));
+        return view('l_ruangan.index', compact('l_ruangan','pm_ruangan'));
     }
 
 

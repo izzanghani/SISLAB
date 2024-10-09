@@ -38,6 +38,7 @@
                         <th>Jenis Kegiatan</th>
                         <th>Nama Ruangan</th>
                         <th>Tanggal Peminjaman</th>
+                        <th>Tanggal Pengembalian</th>
                         <th>Keterangan</th>
                         <th>Dokumentasi</th>
                         <th>Aksi</th>
@@ -53,6 +54,7 @@
                         <td>{{$data->jenis_kegiatan}}</td>
                         <td>{{$data->ruangan->nama_ruangan}}</td>
                         <td>{{ $data->tanggal_peminjaman }}</td>
+                        <td>{{ $data->tanggal_pengembalian }}</td>
                         <td  style="width: 80px">{{ $data->keterangan }}</td>
                         <td>
                             <img src="{{ asset('/images/pm_ruangan/' . $data->cover) }}"

@@ -9,7 +9,7 @@
     <div class="row page-titles mx-0">
         <div class="col-sm-12 p-md-0">
             <div class="welcome-text">
-              <h4>Tables / Laporan Maintenance Ruangan</h4>
+              <h4>Tables / Maintenance Ruangan</h4>
             </div>
         </div>
     </div>
@@ -20,11 +20,14 @@
 <div class="card">
     <div class="card-header">
         <div class="float-start">
-            <h5>Laporan Maintenance Ruangan</h5>
+            <h5>Maintenance Ruangan</h5>
         </div>
-        <div class="float-end ">
-            <a href="{{ route('lm_ruangan.create') }}" class="btn btn-sm btn-primary">Add</a>
-        </div>
+        <form action="{{ route('lm_ruangan.view-pdf') }}" method="post">
+            @csrf
+
+            <button type="submit" class="btn text-light btn-sm btn-success">Export PDF</button>
+        </form>
+
     </div>
 
     <div class="card-body">
@@ -33,29 +36,23 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Maintenance Ruangan</th>
-                        <th>Keterangan</th>
-                        <th>Aksi</th>
+                        <th>Nama Ruangan</th>
+                        <th>Jenis Perbaikan</th>
+                        <th>Waktu Pengerjaan</th>
+                        <th>Kondisi</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @php $i = 1; @endphp
-                    @foreach ($lm_ruangan as $data)
+                    @foreach ($m_ruangan as $data)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{$data->m_ruangan->id}}</td>
-                        <td>{{ $data->keterangan }}</td>
+                        <td>{{$data->ruangan->nama_ruangan}}</td>
+                        <td>{{ $data->jenis_perbaikan }}</td>
+                        <td>{{ $data->waktu_pengerjaan }}</td>
+                        <td>{{$data->kondisi->kondisi}}</td>
 
-                        <td>
-                            <form action="{{ route('lm_ruangan.destroy', $data->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a href="{{ route('lm_ruangan.edit', $data->id) }}"
-                                    class="btn btn-sm btn-warning">Edit</a> |
-                                <a href="{{ route('lm_ruangan.destroy', $data->id)}}"
-                                     class="btn btn-sm btn-danger" data-confirm-delete="true">Delete</a>
-                            </form>
-                        </td>
+
                     </tr>
                     @endforeach
                 </tbody>

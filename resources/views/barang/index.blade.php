@@ -35,7 +35,7 @@
                         <th>No</th>
                         <th>Nama Barang</th>
                         <th>Nama Merk</th>
-                        <th>Ruangan</th>
+                        <th>Kategori</th>
                         <th>Kondisi</th>
                         <th>Posisi</th>
                         <th>spek</th>
@@ -49,7 +49,7 @@
                         <td>{{ $i++ }}</td>
                         <td>{{ $data->nama_barang }}</td>
                         <td>{{$data->merk->nama_merk}}</td>
-                        <td>{{$data->ruangan->nama_ruangan}}</td>
+                        <td>{{$data->kategori->nama_kategori}}</td>
                         <td>{{$data->kondisi->kondisi}}</td>
                         <td>{{ $data->posisi }}</td>
                         <td>{{ $data->spek }}</td>

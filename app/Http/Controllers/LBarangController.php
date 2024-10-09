@@ -6,10 +6,26 @@ use App\Models\Kondisi;
 use App\Models\pm_barang;
 use App\Models\l_Barang;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 use Illuminate\Http\Request;
 
 class LBarangController extends Controller
 {
+    public function viewPDF()
+    {
+        $pm_barang = pm_Barang::latest()->get();
+
+        $data = [
+            'title' => 'Data Produk',
+            'date' => date('m/d/Y'),
+            'pm_barang' => $pm_barang,
+        ];
+
+        $pdf = PDF::loadView('l_barang.export-pdf', $data)
+            ->setPaper('a4', 'portrait');
+        return $pdf->stream();
+    }
+
     public function __construct()
     {
         $this -> middleware('auth');
@@ -17,8 +33,9 @@ class LBarangController extends Controller
     public function index()
     {
         $l_barang =  l_barang::all();
+        $pm_barang =  pm_barang::all();
         confirmDelete('Delete','Are you sure?');
-        return view('l_barang.index', compact('l_barang'));
+        return view('l_barang.index', compact('l_barang','pm_barang'));
     }
 
 
