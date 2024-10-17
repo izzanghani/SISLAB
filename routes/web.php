@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +44,5 @@ Route::post('lm_barang/export-lm_barang', [App\Http\Controllers\LmBarangControll
 Route::post('lm_ruangan/export-lm_ruangan', [App\Http\Controllers\LmRuanganController::class, 'viewPDF'])->name('lm_ruangan.view-pdf');
 Route::post('l_barang/export-l_barang', [App\Http\Controllers\LBarangController::class, 'viewPDF'])->name('l_barang.view-pdf');
 Route::post('l_ruangan/export-l_ruangan', [App\Http\Controllers\LRuanganController::class, 'viewPDF'])->name('l_ruangan.view-pdf');
+
+Route::get('/exportexcel', [EmployeeController::class, 'exportexcel'])->name('exportexcel');

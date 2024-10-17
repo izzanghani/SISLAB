@@ -10,6 +10,34 @@
     <center>
         <h1>{{ $title }}</h1>
     </center>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .date {
+            text-align: left;
+            margin-top: 10px;
+        }
+    </style>
     <p>Tanggal: {{ $date }}</p>
     <table id="dataTable" class="table ">
         <thead>

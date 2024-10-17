@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Export PDF</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-
-<body>
     <center>
-        <h2>Data Laporan Peminjaman Barang</h2>
+        <h2>{{ $title }}</h2>
     </center>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .date {
+            text-align: left;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
     <p>Tanggal: {{ $date }}</p>
-    <table id="dataTable" class="table ">
+
+    <table>
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Peminjam</th>
-                <th>Email</th>
+                <th>Penanggung Jawab</th>
                 <th>Instansi</th>
-                <th>Nama Barang</th>
+                <th>Jenis Kegiatan</th>
                 <th>Nama Ruangan</th>
                 <th>Tanggal Peminjaman</th>
-                <th>Tanggal Pengembalian</th>
                 <th>Keterangan</th>
                 <th>Kondisi</th>
-
             </tr>
         </thead>
         <tbody class="table-border-bottom-0">
@@ -41,14 +65,13 @@
                 <td>{{ $data->tanggal_pengembalian }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td>{{$data->kondisi->kondisi}}</td>
-              
 
-        </tr>
+
+
+            </tr>
             @endforeach
         </tbody>
-
     </table>
 
 </body>
-
 </html>

@@ -26,7 +26,9 @@
             @csrf
 
             <button type="submit" class="btn text-light btn-sm btn-success">Export PDF</button>
+            <a href="/exportexcel" class="btn btn-sm btn-primary">Export EXCEL</a>
         </form>
+
     </div>
 
     <div class="card-body">

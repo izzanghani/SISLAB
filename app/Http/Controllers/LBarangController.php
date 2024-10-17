@@ -23,7 +23,12 @@ class LBarangController extends Controller
 
         $pdf = PDF::loadView('l_barang.export-pdf', $data)
             ->setPaper('a4', 'portrait');
-        return $pdf->stream();
+         return $pdf->download('laporan.pdf');
+    }
+
+    public function exportexcel()
+    {
+        return Excel::download(new EmployeeExport, 'l_barang.xlsx');
     }
 
     public function __construct()
