@@ -25,6 +25,11 @@
         <div class="float-end ">
             <a href="{{ route('pm_ruangan.create') }}" class="btn btn-sm btn-primary">Add</a>
         </div>
+        <form action="{{ route('pm_ruangan.view-pdf') }}" method="post">
+            @csrf
+
+            <button type="submit" class="btn text-light btn-sm btn-success">Export PDF</button>
+        </form>
     </div>
 
     <div class="card-body">

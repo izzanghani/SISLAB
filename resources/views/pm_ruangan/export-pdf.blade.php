@@ -39,7 +39,7 @@
             margin-top: 10px;
         }
     </style>
-
+    
     <p>Tanggal: {{ $date }}</p>
     <table id="dataTable" class="table ">
         <thead>

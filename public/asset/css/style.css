@@ -19403,4 +19403,41 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     [data-theme-version="dark"] .footer .copyright p {
       color: #fff; }
 
+      .excel {
+        background-color: greenyellow; /* Warna latar belakang */
+        color: white; /* Warna teks */
+        border: none; /* Menghilangkan border */
+        padding: 5px 10px; /* Padding untuk tombol */
+        text-align: center; /* Menyelaraskan teks ke tengah */
+        text-decoration: none; /* Menghilangkan garis bawah */
+        display: inline-block; /* Menjadikan tombol inline */
+        font-size: 13px; /* Ukuran font */
+        margin: 4px 2px; /* Margin untuk jarak antar tombol */
+        cursor: pointer; /* Menunjukkan kursor pointer saat hover */
+        border-radius: 5px; /* Sudut melengkung */
+        transition: background-color 0.3s; /* Efek transisi */
+    }
+
+    .excel:hover {
+        background-color: green; /* Warna saat hover */
+    }
+    .pdf {
+        background-color: blue; /* Warna latar belakang */
+        color: white; /* Warna teks */
+        border: none; /* Menghilangkan border */
+        padding: 5px 10px; /* Padding untuk tombol */
+        text-align: center; /* Menyelaraskan teks ke tengah */
+        text-decoration: none; /* Menghilangkan garis bawah */
+        display: inline-block; /* Menjadikan tombol inline */
+        font-size: 13px; /* Ukuran font */
+        margin: 4px 2px; /* Margin untuk jarak antar tombol */
+        cursor: pointer; /* Menunjukkan kursor pointer saat hover */
+        border-radius: 5px; /* Sudut melengkung */
+        transition: background-color 0.3s; /* Efek transisi */
+    }
+
+    .pdf:hover {
+        background-color: var(--blue); /* Warna saat hover */
+    }
+
 /*# sourceMappingURL=style.css.map */

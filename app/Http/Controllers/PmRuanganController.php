@@ -6,9 +6,24 @@ use App\Models\Ruangan;
 use App\Models\pm_Ruangan;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use PDF;
 
 class PmRuanganController extends Controller
 {
+    public function viewPDF()
+    {
+        $pm_ruangan = pm_Ruangan::latest()->get();
+
+        $data = [
+            'title' => 'Data Produk',
+            'date' => date('m/d/Y'),
+            'pm_ruangan' => $pm_ruangan,
+        ];
+
+        $pdf = PDF::loadView('pm_ruangan.export-pdf', $data)
+            ->setPaper('a4', 'portrait');
+        return $pdf->stream();
+    }
     public function __construct()
     {
         $this -> middleware('auth');

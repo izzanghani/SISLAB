@@ -25,7 +25,7 @@
         <div class="float-end ">
             <a href="{{ route('pm_barang.create') }}" class="btn btn-sm btn-primary">Add</a>
         </div>
-    </div>
+       </div>
 
     <div class="card-body">
         <div class="table-responsive text-nowrap">
@@ -43,6 +43,10 @@
                         <th>Keterangan</th>
                         <th>Kondisi</th>
                         <th>Dokumentasi</th>
+                        <th>status</th>
+                        <th>serah terima</th>
+                        <th>berita peminjaman</th>
+
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -63,6 +67,29 @@
                         <td>
                             <img src="{{ asset('/images/pm_barang/' . $data->cover) }}"
                                 style="width: 150px">
+                        </td>
+                        <td>
+
+                            <a href="{{ route('pm_barang.edit', $data->id) }}"
+                                class="btn btn-sm btn-warning">sudah di kembalikan</a> |
+                        </td>
+
+
+                        <td>
+                            <form action="{{ route('pm_barang.view-pdf') }}" method="post">
+                                @csrf
+
+                                <button type="submit" class="btn text-light btn-sm btn-success">Cetak surat</button>
+                            </form>
+
+                        </td>
+                        <td>
+                            <form action="{{ route('pm_barang.view-pdf') }}" method="post">
+                                @csrf
+
+                                <button type="submit" class="btn text-light btn-sm btn-success">Cetak surat</button>
+                            </form>
+
                         </td>
 
                         <td>
